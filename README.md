@@ -56,7 +56,6 @@ http {
     location = /oauth2/authorization/azure {
       proxy_set_header X-Forwarded-Proto  $scheme;
       proxy_set_header Host            $host;
-      #proxy_set_header X-Forwarded-For $remote_addr;
       proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
       proxy_pass http://authentication:8080;
     }
@@ -64,7 +63,6 @@ http {
     location = /login/oauth2/code/azure {
       proxy_set_header X-Forwarded-Proto  $scheme;
       proxy_set_header Host            $host;
-      #proxy_set_header X-Forwarded-For $remote_addr;
       proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
       proxy_pass http://authentication:8080;
     }
