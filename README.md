@@ -1,6 +1,6 @@
 ## Makes it possible to use nginx' auth_request module with Microsoft azures active directory and oauth2
 
-![circleci](https://circleci.com/gh/Gontrum/azureadtonginx.svg?style=shield&circle-token=6bc963b5758d26414a4a1add0b970d31bcef8580)
+![circleci](https://circleci.com/gh/Gontrum/azureadtonginx.svg?style=shield&circle-token=596e6c783e661fb1468c59d781b975f84b32b036)
 
 ### Example Configuration:
 
