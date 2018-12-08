@@ -27,7 +27,7 @@ services:
 ```
 
 
-```
+```nginx
 events {}
 
 http {
@@ -41,9 +41,8 @@ http {
 
     root /var/www/nicewebsite.gontrum.io/;
 
-    error_page 401 = @error401;
     location @error401 {
-      return 302 /login;
+      return 302 /oauth2/authorization/azure;
     }
 
     # that's the location which has restricted access
@@ -52,10 +51,6 @@ http {
     location = /restricted {
         proxy_pass http://somewhereelse.inthe.world;
         auth_request /auth;
-    }
-
-    location = /login {
-      proxy_pass http://authentication:8080;
     }
 
     location = /oauth2/authorization/azure {
