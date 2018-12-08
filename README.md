@@ -27,7 +27,7 @@ services:
 ```
 
 
-```json
+```
 events {}
 
 http {
