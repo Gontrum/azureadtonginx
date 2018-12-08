@@ -18,8 +18,13 @@ jobs:
 
       - run: ./gradlew build
 
-      - run: |
+      - deploy:
           TAG=0.1.$CIRCLE_BUILD_NUM
           docker build -t davidgontrum/azureadtonginx:$TAG .
           docker login -u $DOCKER_USER -p $DOCKER_PASS
           docker push davidgontrum/azureadtonginx:$TAG
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker tag davidgontrum/azureadtonginx:$TAG davidgontrum/azureadtonginx:latest
+              docker push davidgontrum/azureadtonginx:latest
+            fi
